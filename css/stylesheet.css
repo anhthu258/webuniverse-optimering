@@ -125,7 +125,7 @@ header::after {                     /*Fjern floats efter header content*/
 }
 
 #intro {                            /*Styling til intro section med bagrundsbillede*/
-    background-image: url(../img/red-chair.JPG);
+    background-image: url(../img/red-chair.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -454,7 +454,7 @@ section p{
 
 .bg-main {
     position: relative;                                     /*sørge for at positionen relativt indeholder pseudo-element*/
-    background-image: url(../img/students.jpg);
+    background-image: url(../img/students.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
