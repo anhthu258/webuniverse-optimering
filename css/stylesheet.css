@@ -1,0 +1,756 @@
+*{                                  /*Reset alt default setting for margin og padding, dermed definere alle box-sizing til border-box*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {                             /*Definere nogle css variables for farver for nemmere tilgang*/
+    --dark-grey: #353535;
+    --dark-turquoise: #3c6e71;
+    --white: #ffffff;
+    --light-grey: #d9d9d9;
+    --dark-blue: #284b63;
+  }
+
+body p{                               /*Set default font-family og style for alt under body*/
+    font-family: prenton-condensed, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+h1{                                 /*Styling for main heading h1*/
+    font-family: nicholas, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 11rem;
+    color: var(--dark-grey);
+    display:flex;
+    flex-direction: row-reverse;
+    padding-right: 10px;
+}
+
+a{
+    color: var(--white);
+}
+
+h2{                                 /*Styling for secondary heading h2*/
+    font-family: prenton-display, sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 5rem;
+    color: var(--dark-turquoise);
+    display:flex;
+    flex-direction: row-reverse;
+    padding-right: 10px;
+}
+
+#header{                            /*Bestemt layout for header med brug af flexbox*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo{                              /*Style og rotation af logo*/
+    transform: rotate(270deg);
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    padding: 0 10px;
+}
+
+header .navbar {                    /*Bestemt baggrundsfarve for navigationsbar*/
+    background-color: white;
+}
+
+header .navbar ul{                  /*Styling af navigationsbar*/
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: var(--light-grey);
+}
+
+header .navbar ul li{               /*Definere position af navigationsbar listitem*/
+    position: relative;
+}
+
+header .navbar ul li a{             /*Styling af links i navigationsbar*/
+    text-decoration: none;
+    font-size: 20px;
+    padding: 18px;
+    color: var(--dark-blue);
+    display: block;
+    background: var(--light-grey);
+}
+
+header .navbar ul li a:hover{       /*Styling af navigationsbar under hover tilstand*/
+    background: var(--dark-blue);
+    color: #fff;
+}
+
+header .navbar ul li ul{            /*Styling af dropdown menu i navbar*/
+    position: absolute;
+    left: 0;
+    width: 100%;                    /*Definere at den skal udfylde hele siden*/
+    background: var(--light-grey);
+    display: none;
+    z-index: 10;                    /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+header .navbar ul li ul li{         /*Styling af list item i dropdown menu*/
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid var(--dark-grey);
+}
+
+header .navbar ul li ul li ul{      /*Styling af nested dropdown menu*/
+    left: 200px;
+    top: 0;
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{     /*Definere display af dropdown menu på hover eller fokus*/
+    display: block;
+    z-index: 10;                     /*Styrer stablingrækkefølge højere værdi ligger øverst, i denne tilfælde ligger alt under ul øverst for alle andre elementer*/
+}
+
+header::after {                     /*Fjern floats efter header content*/
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#intro {                            /*Styling til intro section med bagrundsbillede*/
+    background-image: url(../img/red-chair.JPG);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    color: white;
+    text-align: left;
+    padding-left: 50px; 
+    font-size: 18px;
+}
+
+.content {                          /*Styling af content inde i intro section*/
+    background-color: var(--dark-blue);
+    opacity: 0.8;
+    padding: 50px;
+    max-width: 400px;
+}
+
+.content h2{                        /*Styling af secondary heading i intro section*/
+    color: var(--white);
+    font-family: nicholas, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 3rem;
+    display: block;
+    padding-bottom: 5px;
+}
+
+#motivation {                       /*Layout og styling af motivation section*/
+    background-color: var(--dark-turquoise);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    z-index: 0;
+    flex-direction: row-reverse;
+    padding: 20px;
+}
+
+#motivation h2 {                    /*Styling af secondary heading under motivations section*/
+    color: var(--white);
+    font-family: nicholas, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    display: block;
+}
+
+#motivation p {                    /*Styling af paragraph under motivations section*/                     
+    flex: 1;                       /*Tillader paragraph til at gro og mindske*/
+    width: 60%;
+    color: var(--white);
+    font-size: 18px;
+}
+
+#motivation a{                      /*Styling af eksterne link under motivations section*/
+    color: var(--white);
+}
+
+#motivation div{                    /*Definere en position for texten under motivation*/
+    margin: 2rem 9rem 2rem;
+}
+
+#citat{
+    font-style: italic;
+    display: block;
+    padding: 10px;
+}
+
+#motivation img {                  /*Styling af billeder under motivations section*/
+    width: 30%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 100%;                /*sørg for at billedet passer in i dens container*/
+    height: auto;
+}
+
+#intro, #motivation {               /*Dele styling for både intro og motivation section*/
+    position: relative;
+    padding: 20px;
+}
+
+#plant img {                        /*Definere postion og stylling af plant img*/
+    position: absolute;
+    top: 700px;
+    left: 75%;
+    z-index: 1;                     /*Sammen måde som navbar bliver plant img placeres øverst over for andre elementer med z-index*/
+    transform: rotate(270deg);      /*Rotering af billedet*/
+    width: 800px;
+    max-width: 100%;
+}
+
+#plant-2{
+    position: absolute;
+    right: 75%;
+    top: 1200px;
+    max-width: 100%;
+}
+
+aside {                             /*Styling og layout for aside*/
+    display: flex;
+    gap: 20px; 
+    justify-content: space-around;
+}
+
+aside p{                            /*Styling for paragraph under aside*/
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+aside h3{
+    font-size: 2rem;
+}
+
+aside .content{                     /*Styling for content blocks under aside*/
+background-color: var(--white);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+aside a{
+    text-decoration: none;
+    color: var(--dark-blue);
+}
+
+.teaser {                           /*Styling for teaser img under aside*/
+    width: 40%;
+    flex-shrink: 0;
+}
+
+.teaser img {                       /*Styling for img under teaser*/
+    width: 200%;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+#fixed{                             /*Styling for fixed sektionen i højre bund af siden*/
+    color: var(--white);
+    background-color: var(--dark-blue);
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    padding: 20px;
+    font-size: 18px;
+    z-index: 9;
+}
+
+#fixed a{                           /*Styling for links i fixed*/
+    color: var(--white);
+    text-decoration: none;
+    font-family: prenton-condensed, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/*STYILING TIL RE-DIRECT SIDE*/
+
+#konstruktion {                     /*Definere ayout for construction*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#konstruktion h1 {                  /*Styling for main heading h1 i construction*/
+    margin: 5%;
+    color: var(--dark-blue);
+}
+
+#konstruktion a{                     /*Styling for links i construction*/
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+    background-color: var(--dark-blue);
+    padding: 10px;
+}
+
+footer {                            /*Styling for footer*/
+    background-color: var(--light-grey);
+    color: black;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+footer img{                         /*Styling for logoet under footer*/
+    padding-bottom: 2%;
+    width: 400px;
+}
+
+footer nav ul {                     /*Styling footers navigationsbar*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer nav ul li {                  /*Styling for list items under footer navigationsbar*/
+    display: inline-block; 
+    margin-right: 15px; 
+}
+
+footer nav ul li:last-child {       /* Fjerne margin for den sidste list item i footer*/
+    margin-right: 0;
+}
+
+footer nav ul li a {                /* Style for links i footer navigationsbar */
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+/*STYLING AF STRUKTUR UNDER MENU*/
+
+.layout-1{
+    background-color: var(--dark-blue);
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row-reverse;
+    max-width: 1200px; 
+    margin: 0 auto;  
+    padding: 0 20px; 
+}
+
+.layout-1 h2{
+    font-family: nicholas, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 4rem;
+    color: var(--white);
+    display: block;
+}
+
+.layout-1 img{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    height: auto;
+    width: 40%;
+}
+
+.layout-1 section{
+    padding: 2rem;
+}
+
+.layout-2{
+    background-color: var(--white);
+    color: var(--dark-grey);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0 20px;
+}
+
+.layout-2 h2{
+    font-family: nicholas, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 4rem;
+    color: var(--dark-blue);
+    display: block;
+}
+
+.layout-2 img{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    height: auto;
+    width: 40%;
+}
+
+.layout-2 section{
+    padding: 2rem;
+}
+
+#struktur{
+    display: block;
+    padding: 1.5% 0;
+}
+
+section ol{
+    font-family: prenton-display, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: 1px;
+    padding: 1.5%;
+}
+
+section ul{
+    font-family: prenton-display, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: 1px;
+    padding: 1.5%;
+}
+
+section h3{
+    padding: 1.5%;
+}
+
+section p{
+    font-family: prenton-display, sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    display: block;
+    padding: 1%;
+}
+
+.citat{
+    font-style: italic;
+    text-align: center;
+}
+
+/*STYLING FOR DISKUSSION*/
+
+.bg-main {
+    position: relative;                                     /*sørge for at positionen relativt indeholder pseudo-element*/
+    background-image: url(../img/students.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 50px;
+}
+                                                            /*pseudo-element danner en full overlay på topen af .bg main*/
+
+.bg-main::before {                                          /*Tilføjer en tint før pseudo elementet*/
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);               /* Black tint with 50% opacity */
+    z-index: 1;                                           /* Place the tint behind the text */
+}
+
+.bg-main h1 {
+    position: relative;                                 /* Ensure h1 is above the tint */
+    z-index: 2;                                         /* Place the h1 on top of the tint */
+    color: var(--white);
+    text-align: center;
+}
+
+/*STYLING FOR COMMENT SECTION*/
+
+.comment-section {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-section h2 {
+    margin-top: 0;
+    display: block;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-form textarea {
+    resize: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 100px;
+}
+
+.comment-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--dark-turquoise);
+    color: white;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: var(--dark-grey);
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.username {
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+.comment-text {
+    margin: 5px 0 0;
+}
+
+.reply-btn {
+    padding: 5px 10px;
+    background-color: var(--dark-turquoise);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.reply-btn:hover {
+    background-color: var(--dark-grey);
+}
+
+/*STYLING AF LOG IN BUTTON*/
+
+.login-container {                                      /*Centering af login knappen i en lukket kontainer*/
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 10vh;                                       /* 10% i højde af viewport*/
+    padding: 10px;
+}
+
+.login-btn {                                            /*Styling af login knappen*/
+    background-color: var(--dark-grey); 
+    border: none; 
+    color: white;
+    padding: 15px 32px;                                 /* Padding inde i the knappen */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;             /*En mere flydende hover på farve skift*/
+}
+
+.login-btn:hover {
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+}
+
+/*STYLING AF LOGIN SIDEN*/
+
+.login-container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background-color: var(--white);
+}
+
+.login-box {                                            /*Styling af login box*/
+    background-color: var(--dark-turquoise);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.input-group {                                          /*Definere og styling af input kontainer*/
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+}
+
+/*STYLING AF CHECKBOX*/
+input[type="checkbox"] {                                            /*Gemmer default checkbox*/
+    display: none;
+}
+
+.custom-checkbox {                                                  /*Definere en custom checkbox*/
+    display: flex;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.custom-checkbox .checkmark {                                       /*Bestemt checkmark i tom box)*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 2px solid #ccc;
+}
+
+.custom-checkbox input:checked + .checkmark {                       /*Når checkbox er krydset af skifter den farve*/
+    background-color: var(--dark-turquoise);
+    border-color: var(--dark-turquoise);
+}
+
+.custom-checkbox .checkmark:after {                                 /*Definere at checkmark kan ses efter man har krydset af*/
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked + .checkmark:after {                 /*Viser checkmark efter*/
+    display: block;
+}
+
+.custom-checkbox .checkmark:after {                                 /*Styling af checkmark*/
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid var(--white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+@media (max-width: 500px) {
+    .login-box {
+        width: 90%;
+    }
+}
+
+
+@media (max-width:900px){
+    #logo{                            /* Gemmer logoet på mindre skærm */
+        display: none;
+    }
+
+    h1{                               /*Justering af heading styling på mindre skærm*/
+        font-size: 9rem;
+    }
+
+    h2{                               /*Justering af heading styling på mindre skærm*/
+        font-size: 3rem;
+    }
+
+    header .navbar{                 /*Styling for navbar på smaller mindre*/
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-top: 1px solid rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    header .navbar ul li{          /*Definere full-width til list items i navbar*/
+        width: 100%;
+    }
+
+    header .navbar ul li ul{        /*Justere dropdown menu styling på mindre skærm*/
+        position: relative;
+        width: 100%;
+    }
+
+    header .navbar ul li ul li{     /*Justere submenu styling på mindre skærm*/
+        background: #eee;
+    }
+
+    header .navbar ul li ul li ul{   /*Definere full-width til nested dropdown menu*/
+        width: 100%;
+        left: 0;
+    }
+
+    #motivation p{
+        max-width: 100%;
+        width: auto;
+    }
+
+    #motivation img{
+        display: contents;
+    }
+
+    #plant img{
+        left: 57%;
+    }
+
+    aside h3 {
+        font-size: 1.1rem;
+    }
+
+    aside p{
+        font-size: 14px;
+    }
+}
